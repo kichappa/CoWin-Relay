@@ -1,13 +1,24 @@
-import requests, ast, copy, datetime, json
+import requests, ast, copy, datetime, json, random
 from time import sleep
 
-def cowin_get(district_id, date):
-    URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={}&date={}"
-    response = requests.get(URL.format(district_id, date), headers={
-                    "accept": "application/json",
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
-                })
-    return response
+def cowin_get(district_id, date, session, proxy):
+    if proxy=="":
+        URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={}&date={}"
+        response = session.get(URL.format(district_id, date), headers={
+                        "accept": "application/json",
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
+                    })
+        return response
+    else:
+        URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={}&date={}"
+        response = session.get(URL.format(district_id, date), headers={
+                        "accept": "application/json",
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
+                    }, proxies={
+                        "http": proxy,
+                        "https": proxy
+                    })
+        return response
    
 def print_slots(slots):
     text=""
@@ -87,10 +98,21 @@ if __name__=="__main__":
     while True:
         try:
             print("Fetching CoWin API...", end="\r")
+            proxies = []
+            with open("proxy.json", 'r') as f:
+                proxies=json.loads(f)
+                proxies=proxies['proxy']
+                proxies.append("")
+            print("Proxies={}".format(proxies))
             with open("location.json", 'r') as f:
                 data=json.load(f)
                 district_id=data['district_id']
-            resp_json=dict(cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year)).json())
+                
+            proxy = proxies[random.randint(0, len(proxies)-1)]
+            print("Using proxy {}...".format(proxy), end="\r")
+            sleep(3)
+            print(cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy).content)
+            # resp_json=dict(cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy).json())
             # print(print_centres(resp_json['centers']))
             # print(json.dumps(resp_json, indent=2))
             # new_message = print_centres(resp_json['centers'])
@@ -100,7 +122,9 @@ if __name__=="__main__":
                 print("Fetching Telegram API...", end="\r")
                 telegram_bot_sendtext("{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
             print("Waiting 5 seconds...", end="\r")
-            sleep(5)
+            sleep(2)
         except:
+            sleep(3)
             print("API error, retrying", end="\r")
+            sleep(2)
 
