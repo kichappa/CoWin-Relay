@@ -1,0 +1,126 @@
+{
+    "centers": [
+      {
+        "center_id": 155175,
+        "name": "Pothanicad PHC",
+        "address": "PallarimangalamErnakulamKeralaIN",
+        "state_name": "Kerala",
+        "district_name": "Ernakulam",
+        "block_name": "Pallarimangalam CHC",
+        "pincode": 686671,
+        "lat": 10,
+        "long": 76,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [
+          {
+            "session_id": "4e599410-cdf2-4248-b93b-a42c23dd12a8",
+            "date": "14-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 45,
+            "vaccine": "COVISHIELD",
+            "slots": [
+              "09:00AM-10:00AM",
+              "10:00AM-11:00AM",
+              "11:00AM-12:00PM",
+              "12:00PM-02:00PM"
+            ]
+          }
+        ]
+      },
+      {
+        "center_id": 155167,
+        "name": "Kothamangalam THQH",
+        "address": "VarapettyErnakulamKeralaIN",
+        "state_name": "Kerala",
+        "district_name": "Ernakulam",
+        "block_name": "Pallarimangalam CHC",
+        "pincode": 686691,
+        "lat": 10,
+        "long": 76,
+        "from": "09:00:00",
+        "to": "17:00:00",
+        "fee_type": "Free",
+        "sessions": [
+          {
+            "session_id": "7e1bfcb5-6139-430e-bcc9-790a791cc4aa",
+            "date": "14-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 45,
+            "vaccine": "COVISHIELD",
+            "slots": [
+              "09:00AM-11:00AM",
+              "11:00AM-01:00PM",
+              "01:00PM-03:00PM",
+              "03:00PM-05:00PM"
+            ]
+          }
+        ]
+      },
+      {
+        "center_id": 155443,
+        "name": "Pallarimangalam CHC",
+        "address": "PallarimangalamErnakulamKeralaIN",
+        "state_name": "Kerala",
+        "district_name": "Ernakulam",
+        "block_name": "Pallarimangalam CHC",
+        "pincode": 686671,
+        "lat": 10,
+        "long": 76,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [
+          {
+            "session_id": "7b58d596-a48b-4997-ab2a-02db5e30b2eb",
+            "date": "14-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 45,
+            "vaccine": "COVISHIELD",
+            "slots": [
+              "09:00AM-10:00AM",
+              "10:00AM-11:00AM",
+              "11:00AM-12:00PM",
+              "12:00PM-02:00PM"
+            ]
+          }
+        ]
+      },
+      {
+        "center_id": 566031,
+        "name": "Apollo Adlux Hospital",
+        "address": "Near Adlux Convention Center Cable Junction Ernakulam District National Highway 47 Karukutty Angamaly",
+        "state_name": "Kerala",
+        "district_name": "Ernakulam",
+        "block_name": "Ankamali TH",
+        "pincode": 683576,
+        "lat": 10,
+        "long": 76,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Paid",
+        "sessions": [
+          {
+            "session_id": "dfc5c1ac-a7c9-4dea-a9b1-71f615046ef4",
+            "date": "14-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "COVAXIN",
+            "slots": [
+              "09:00AM-11:00AM",
+              "11:00AM-01:00PM",
+              "01:00PM-03:00PM",
+              "03:00PM-04:00PM"
+            ]
+          }
+        ],
+        "vaccine_fees": [
+          {
+            "vaccine": "COVAXIN",
+            "fee": "1250"
+          }
+        ]
+      }
+    ]
+  }
