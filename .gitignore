@@ -1,5 +1,6 @@
 token.json
 location.json
+proxy.json
 test.py
 .gitignore
  - Copy.gitignore
