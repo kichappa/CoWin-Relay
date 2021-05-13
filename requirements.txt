@@ -1,2 +1,3 @@
 requests
-torpy
+bs4
+lxml
