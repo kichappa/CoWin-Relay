@@ -97,34 +97,36 @@ def telegram_bot_sendtext(bot_message):
 if __name__=="__main__":
     while True:
         try:
-            print("Fetching CoWin API...", end="\r")
+            print("Fetching CoWin API...{}".format(" "*20), end="\r")
             proxies = []
             with open("proxy.json", 'r') as f:
-                proxies=json.loads(f)
+                proxies=json.load(f)
                 proxies=proxies['proxy']
                 proxies.append("")
-            print("Proxies={}".format(proxies))
+            # print("Proxies={}".format(proxies))            
             with open("location.json", 'r') as f:
                 data=json.load(f)
-                district_id=data['district_id']
-                
+                district_id=data['district_id']                
             proxy = proxies[random.randint(0, len(proxies)-1)]
+            sleep(2)
             print("Using proxy {}...".format(proxy), end="\r")
-            sleep(3)
-            print(cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy).content)
-            # resp_json=dict(cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy).json())
+            response=cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy)
+            if response.status_code == requests.codes.ok:
+                resp_json=dict(response.json())
             # print(print_centres(resp_json['centers']))
             # print(json.dumps(resp_json, indent=2))
             # new_message = print_centres(resp_json['centers'])
             new_message = print_centres(available_centres(resp_json))
             print("{}".format(new_message), end="")
             if not new_message=="":
-                print("Fetching Telegram API...", end="\r")
+                print("Fetching Telegram API...{}".format(" "*20), end="\r")
                 telegram_bot_sendtext("{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
-            print("Waiting 5 seconds...", end="\r")
-            sleep(2)
+            else:
+                print("No available centres...{}".format(" "*20), end='\r')
+            # print("Waiting 5 seconds...", end="\r")
+            sleep(1)
         except:
-            sleep(3)
-            print("API error, retrying", end="\r")
+            sleep(1)
+            print("API error, retrying{}".format(" "*20), end="\r")
             sleep(2)
 
