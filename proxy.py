@@ -15,8 +15,8 @@ def cowin_get(district_id, date, session, proxy):
                         "accept": "application/json",
                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
                     }, proxies={
-                        "http": proxy,
-                        "https": proxy
+                        "http": "http://"+proxy,
+                        "https": "https://"+proxy
                     })
         return response
 
@@ -48,3 +48,4 @@ for items in soup.select("#proxylisttable tbody tr"):
             print("Not working...{}".format(" "*20), end='\r')
     except:
         pass
+

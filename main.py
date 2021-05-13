@@ -15,8 +15,8 @@ def cowin_get(district_id, date, session, proxy):
                         "accept": "application/json",
                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
                     }, proxies={
-                        "http": proxy,
-                        "https": proxy
+                        "http": "http://"+proxy,
+                        "https": "https://"+proxy
                     })
         return response
    
@@ -109,24 +109,23 @@ if __name__=="__main__":
                 district_id=data['district_id']                
             proxy = proxies[random.randint(0, len(proxies)-1)]
             sleep(2)
-            print("Using proxy {}...".format(proxy), end="\r")
+            if not proxy=="": print("Using proxy {}...{}".format(proxy, " "*20), end="\r")
             response=cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy)
             if response.status_code == requests.codes.ok:
                 resp_json=dict(response.json())
-            # print(print_centres(resp_json['centers']))
-            # print(json.dumps(resp_json, indent=2))
-            # new_message = print_centres(resp_json['centers'])
-            new_message = print_centres(available_centres(resp_json))
-            print("{}".format(new_message), end="")
-            if not new_message=="":
-                print("Fetching Telegram API...{}".format(" "*20), end="\r")
-                telegram_bot_sendtext("{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
-            else:
-                print("No available centres...{}".format(" "*20), end='\r')
+                # print(print_centres(resp_json['centers']))
+                # print(json.dumps(resp_json, indent=2))
+                # new_message = print_centres(resp_json['centers'])
+                new_message = print_centres(available_centres(resp_json))
+                print("{}".format(new_message), end="")
+                if not new_message=="":
+                    print("Fetching Telegram API...{}".format(" "*20), end="\r")
+                    telegram_bot_sendtext("{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
+                else:
+                    print("No available centres...{}".format(" "*20), end='\r')
             # print("Waiting 5 seconds...", end="\r")
-            sleep(1)
+            sleep(2)
         except:
-            sleep(1)
             print("API error, retrying{}".format(" "*20), end="\r")
             sleep(2)
 
