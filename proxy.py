@@ -33,10 +33,10 @@ soup = BeautifulSoup(res.text,"lxml")
 for items in soup.select("#proxylisttable tbody tr"):
     proxy = ':'.join([item.text for item in items.select("td")[:2]])
     try:
-        print("Attempting proxy, {}".format(proxy))
+        print("Attempting proxy, {}{}".format(proxy, " "*20))
         t = cowin_get(307, "{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy)
         if t.status_code == requests.codes.ok:
-            print("New proxy, {}".format(proxy))
+            print("New proxy, {}{}".format(proxy, " "*20))
             if proxy not in proxies:
                 proxies.append(proxy)
             # print("Proxies={}".format(proxies))
@@ -44,5 +44,7 @@ for items in soup.select("#proxylisttable tbody tr"):
             f=open("proxy.json", 'w')
             json.dump({"proxy": proxies}, f, indent=2)
             f.close()
+        else:
+            print("Not working...{}".format(" "*20), end='\r')
     except:
         pass
