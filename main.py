@@ -85,18 +85,22 @@ def telegram_bot_sendtext(bot_message):
 
 if __name__=="__main__":
     while True:
-        print("Fetching...", end="\r")
-        with open("location.json", 'r') as f:
-            data=json.load(f)
-            district_id=data['district_id']
-        resp_json=dict(cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year)).json())
-        # print(print_centres(resp_json['centers']))
-        # print(json.dumps(resp_json, indent=2))
-        # new_message = print_centres(resp_json['centers'])
-        new_message = print_centres(available_centres(resp_json))
-        print("{}".format(new_message), end="")
-        if not new_message=="":
-            telegram_bot_sendtext("{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
-        print("Waiting 7 seconds...", end="\r")
-        sleep(7)
+        try:
+            print("Fetching CoWin API...", end="\r")
+            with open("location.json", 'r') as f:
+                data=json.load(f)
+                district_id=data['district_id']
+            resp_json=dict(cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year)).json())
+            # print(print_centres(resp_json['centers']))
+            # print(json.dumps(resp_json, indent=2))
+            # new_message = print_centres(resp_json['centers'])
+            new_message = print_centres(available_centres(resp_json))
+            print("{}".format(new_message), end="")
+            if not new_message=="":
+                print("Fetching Telegram API...", end="\r")
+                telegram_bot_sendtext("{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
+            print("Waiting 5 seconds...", end="\r")
+            sleep(5)
+        except:
+            print("API error, retrying", end="\r")
 
