@@ -1,5 +1,6 @@
 import requests, ast, copy, datetime, json, random
 from time import sleep
+from math import remainder
 
 def cowin_get(district_id, date, session, proxy):
     if proxy=="":
@@ -33,7 +34,7 @@ def print_slots(slots):
     return text
 
 def print_session(session):
-    return "\n  Date: {}\n  Available Capacity: {}\n  Type: {}\n  Slots:[{}]".format(session['date'], session['available_capacity'], session['vaccine'], print_slots(session['slots']))
+    return "\n  Date: {}\n  Ages: {} plus\n  Available Capacity: {}\n  Type: {}\n  Slots:[{}]".format(session['date'], session['min_age_limit'], session['available_capacity'], session['vaccine'], print_slots(session['slots']))
 
 def print_vaccine(vaccines):
     text="\n  Vaccines:["
@@ -50,7 +51,7 @@ def print_vaccine(vaccines):
 def print_centres(centres):
     text=""
     for centre in centres:
-        print(len(text))
+        # print(len(text))
         text+=("\n\n{}: ".format(centre['name']) if len(text) else "{}: ".format(centre['name']))
         if not len(centre['sessions']):
             text+="\nNo slots avaiable"
@@ -72,29 +73,31 @@ def available_centres(resp_json):
             # print("session capacity={}, type={}, {}".format(session['available_capacity'], type(session['available_capacity']), bool(session['available_capacity'])))
             if bool(session['available_capacity']):
                 slot_availabe=True
-                new_centre['sessoions'].append(session)
+                new_centre['sessions'].append(session)
                 # print(centre['name'], session, sep="\n")
         if len(new_centre['sessions']):
             centres.append(new_centre)
     return centres
 
-bot_token="1837974035:AAHJ0SCrHgk-F8ByCB5i3hHBXUZzkOT4Lkw"
-chat_id="638540040"
-
-def telegram_bot_sendtext(bot_message):
+def telegram_bot_sendtext(bot_message, opt=0):
     # bot_token = ''
     # bot_chatID = ''
     with open("token.json", 'r') as f:
         tokens=json.load(f)
         bot_token=tokens['bot_token']
         bot_chatID=str(tokens['bot_chatID'])
-    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
+        bot_msgID=str(tokens['bot_msgID'])
+    if opt==0:
+        send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
+    elif opt==1:
+        send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_msgID + '&parse_mode=Markdown&text=' + bot_message
 
     response = requests.get(send_text)
 
     return response.json()
 
 if __name__=="__main__":
+    false_count=0
     while True:
         try:
             print("Fetching CoWin API...{}".format(" "*20), end="\r")
@@ -108,11 +111,16 @@ if __name__=="__main__":
                 data=json.load(f)
                 district_id=data['district_id']                
             proxy = proxies[random.randint(0, len(proxies)-1)]
-            sleep(2)
+            telegram_bot_sendtext("Fetching CoWin API...", opt=1)
+            sleep(2)            
             if not proxy=="": print("Using proxy {}...{}".format(proxy, " "*20), end="\r")
             response=cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy)
             if response.status_code == requests.codes.ok:
+                # resp={}
+                # with open("output.json", 'r') as f:
+                #     resp=json.load(f)
                 resp_json=dict(response.json())
+                # resp_json=resp
                 # print(print_centres(resp_json['centers']))
                 # print(json.dumps(resp_json, indent=2))
                 # new_message = print_centres(resp_json['centers'])
@@ -122,10 +130,23 @@ if __name__=="__main__":
                     print("Fetching Telegram API...{}".format(" "*20), end="\r")
                     telegram_bot_sendtext("{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
                 else:
+                    print("{}{}".format(false_count, " "*20), end='\r')
+                    sleep(0.25)
+                    alt=3
+                    if not remainder(false_count, alt):
+                        print("Sending telegram message...".format(" "*20), end='\r')
+                        sleep(0.25)
+                        new_message = print_centres(resp_json['centers'])
+                        telegram_bot_sendtext("{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message), opt=1)
+                    elif remainder(false_count, alt)==-1:
+                        false_count=-1
+                    false_count+=1
                     print("No available centres...{}".format(" "*20), end='\r')
             # print("Waiting 5 seconds...", end="\r")
-            sleep(2)
-        except:
+            sleep(3)
+        except Exception as e:
             print("API error, retrying{}".format(" "*20), end="\r")
-            sleep(2)
+            print(e)
+            sleep(3)
+            telegram_bot_sendtext("{}".format(e), opt=1)
 
