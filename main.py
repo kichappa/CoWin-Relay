@@ -135,6 +135,7 @@ def telegram_bot_delete(messages, opt=1):
     return ok
 
 messages=[]
+last_positive=datetime.datetime.now()-datetime.timedelta(hours=1)
 if __name__=="__main__":
     false_count=0
     while True:
@@ -157,7 +158,7 @@ if __name__=="__main__":
             if response.status_code == requests.codes.ok:
                 # resp={}
                 # with open("output.json", 'r') as f:
-                #     resp=json.load(f)
+                    # resp=json.load(f)
                 resp_json=dict(response.json())
                 # resp_json=resp
                 # print(print_centres(resp_json['centers']))
@@ -165,30 +166,38 @@ if __name__=="__main__":
                 # new_message = print_centres(resp_json['centers'])
                 new_message = print_centres(available_centres(resp_json))
                 if not new_message=="":
+                    with open('good_output.json', 'a') as f:
+                        json.dump(resp_json, f, indent=2)
+                        f.close()
+                    deltaT=datetime.datetime.now()-last_positive
+                    # print(deltaT.total_seconds())
                     print("{}".format(new_message), end='')
-                    print("Fetching Telegram API...{}".format(" "*20), end="\r")
-                    telegram_bot('sendMessage', "{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
+                    if deltaT >= datetime.timedelta(seconds=20):
+                        print("\nRelaying to channel...{}".format(" "*20), end="\r")
+                        telegram_bot('sendMessage', "{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
+                        last_positive=datetime.datetime.now()
                 else:
-                    print("{}{}".format(false_count, " "*20), end='\r')
-                    sleep(0.25)
-                    alt=1
-                    if not remainder(false_count, alt):
-                        print("Sending telegram message...".format(" "*20), end='\r')
-                        sleep(0.25)
-                        new_message = print_centres(resp_json['centers'])
-                        # print(new_message)
-                        with open("output.json", 'w+') as f:
-                            json.dump(resp_json, f, indent=2)
-                        responses=telegram_bot_send("API Response:\n{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message), opt=1)
-                        # print("\n{}, {}".format(responses, type(responses)))
-                        messages.extend(responses)
-                        # print(telegram_bot('sendMessage', "{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message), opt=1))
-                        telegram_bot_delete(messages[:-(len(responses))], 1)
-                        messages=messages[-len(responses):]
-                    elif remainder(false_count, alt)==-1:
-                        false_count=-1
-                    false_count+=1
                     print("No available centres...{}".format(" "*20), end='\r')
+                print("{}{}".format(false_count, " "*40), end='\r')
+                sleep(0.25)
+                alt=1
+                if not remainder(false_count, alt):
+                    print("Sending telegram message...".format(" "*20), end='\r')
+                    sleep(0.25)
+                    new_message = print_centres(resp_json['centers'])
+                    # print(new_message)
+                    with open("output.json", 'w+') as f:
+                        json.dump(resp_json, f, indent=2)
+                        f.close()
+                    responses=telegram_bot_send("API Response:\n{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message), opt=1)
+                    # print("\n{}, {}".format(responses, type(responses)))
+                    messages.extend(responses)
+                    # print(telegram_bot('sendMessage', "{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message), opt=1))
+                    telegram_bot_delete(messages[:-(len(responses))], 1)
+                    messages=messages[-len(responses):]
+                elif remainder(false_count, alt)==-1:
+                    false_count=-1
+                false_count+=1
             # print("Waiting 5 seconds...", end="\r")
             sleep(3)
         except Exception as e:
