@@ -29,14 +29,19 @@ while True:
         f.close()
 
     # print("0 Proxies={}".format(proxies))
-    res = requests.get('https://free-proxy-list.net/anonymous-proxy.html', headers={'User-Agent':'Mozilla/5.0'})
+    res = requests.get('https://free-proxy-list.net/uk-proxy.html', headers={'User-Agent':'Mozilla/5.0'})
     soup = BeautifulSoup(res.text,"lxml")
 
     for items in soup.select("#proxylisttable tbody tr"):
         proxy = ':'.join([item.text for item in items.select("td")[:2]])
         try:
             print("Attempting proxy, {}{}".format(proxy, " "*20))
-            t = cowin_get(307, "{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy)
+            session = requests.Session()
+            retry = requests.packages.urllib3.util.retry.Retry(connect=3, backoff_factor=0.5)
+            adapter = requests.adapters.HTTPAdapter(max_retries=retry)
+            session.mount('http://', adapter)
+            session.mount('https://', adapter)
+            t = cowin_get(307, "{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), session, proxy)
             print(t.status_code)
             if t.status_code == requests.codes.ok:
                 print("New proxy, {}{}".format(proxy, " "*20))
@@ -51,6 +56,6 @@ while True:
                 print("Not working...{}\n".format(" "*20))
         except Exception as e:
             # pass
-            print("Connection error")
+            print("Connection error, \n{}".format(e))
             # print(e)
 

@@ -2,5 +2,7 @@ token.json
 location.json
 proxy.json
 test.py
+good_output.json
+output.json
 .gitignore
  - Copy.gitignore
