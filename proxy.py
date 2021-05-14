@@ -48,8 +48,9 @@ while True:
                 json.dump({"proxy": proxies}, f, indent=2)
                 f.close()
             else:
-                print("Not working...{}\n{}".format(" "*20, t.content))
+                print("Not working...{}\n".format(" "*20))
         except Exception as e:
             # pass
-            print(e)
+            print("Connection error")
+            # print(e)
 
