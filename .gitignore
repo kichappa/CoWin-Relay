@@ -7,3 +7,4 @@ output.json
 .gitignore
  - Copy.gitignore
 output.json
+*.json
