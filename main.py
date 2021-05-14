@@ -132,7 +132,7 @@ if __name__=="__main__":
                 else:
                     print("{}{}".format(false_count, " "*20), end='\r')
                     sleep(0.25)
-                    alt=3
+                    alt=12
                     if not remainder(false_count, alt):
                         print("Sending telegram message...".format(" "*20), end='\r')
                         sleep(0.25)
@@ -148,5 +148,5 @@ if __name__=="__main__":
             print("API error, retrying{}".format(" "*20), end="\r")
             print(e)
             sleep(3)
-            telegram_bot_sendtext("{}".format(e), opt=1)
+            telegram_bot_sendtext("Error:\n\n{}".format(e), opt=1)
 
