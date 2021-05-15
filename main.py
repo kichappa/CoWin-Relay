@@ -2,7 +2,7 @@ import requests, ast, copy, datetime, json, random
 from time import sleep
 from math import remainder
 
-def cowin_get(district_id, date, session, proxy):
+def cowin_get(district_id, date, session, proxy=""):
     if proxy=="":
         URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={}&date={}"
         response = session.get(URL.format(district_id, date), headers={
@@ -137,73 +137,77 @@ def telegram_bot_delete(messages, opt=1):
 messages=[]
 last_positive=datetime.datetime.now()-datetime.timedelta(hours=1)
 if __name__=="__main__":
-    false_count=0
     while True:
         try:
-            print("Fetching CoWin API...{}".format(" "*20), end="\r")
-            proxies = []
-            with open("proxy.json", 'r') as f:
-                proxies=json.load(f)
-                proxies=proxies['proxy']
-                proxies.append("")
-            # print("Proxies={}".format(proxies))            
-            with open("location.json", 'r') as f:
-                data=json.load(f)
-                district_id=data['district_id']                
-            proxy = proxies[random.randint(0, len(proxies)-1)]
-            sleep(2)
-            # messages.append(telegram_bot('sendMessage', "Fetching CoWin API...", opt=1)['result']['message_id'])            
-            if not proxy=="": print("Using proxy {}...{}".format(proxy, " "*20), end="\r")
-            response=cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy)
-            if response.status_code == requests.codes.ok:
-                # resp={}
-                # with open("output.json", 'r') as f:
-                    # resp=json.load(f)
-                resp_json=dict(response.json())
-                # resp_json=resp
-                # print(print_centres(resp_json['centers']))
-                # print(json.dumps(resp_json, indent=2))
-                # new_message = print_centres(resp_json['centers'])
-                new_message = print_centres(available_centres(resp_json))
-                if not new_message=="":
-                    with open('good_output.json', 'a') as f:
-                        json.dump(resp_json, f, indent=2)
-                        f.close()
-                    deltaT=datetime.datetime.now()-last_positive
-                    # print(deltaT.total_seconds())
-                    print("{}".format(new_message), end='')
-                    if deltaT >= datetime.timedelta(seconds=20):
-                        print("\nRelaying to channel...{}".format(" "*20), end="\r")
-                        telegram_bot('sendMessage', "{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
-                        last_positive=datetime.datetime.now()
-                else:
-                    print("No available centres...{}".format(" "*20), end='\r')
-                print("{}{}".format(false_count, " "*40), end='\r')
-                sleep(0.25)
-                alt=1
-                if not remainder(false_count, alt):
-                    print("Sending telegram message...".format(" "*20), end='\r')
-                    sleep(0.25)
-                    new_message = print_centres(resp_json['centers'])
-                    # print(new_message)
-                    with open("output.json", 'w+') as f:
-                        json.dump(resp_json, f, indent=2)
-                        f.close()
-                    responses=telegram_bot_send("API Response:\n{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message), opt=1)
-                    # print("\n{}, {}".format(responses, type(responses)))
-                    messages.extend(responses)
-                    # print(telegram_bot('sendMessage', "{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message), opt=1))
-                    telegram_bot_delete(messages[:-(len(responses))], 1)
-                    messages=messages[-len(responses):]
-                elif remainder(false_count, alt)==-1:
-                    false_count=-1
-                false_count+=1
-            # print("Waiting 5 seconds...", end="\r")
-            sleep(3)
-        except Exception as e:
-            telegram_bot_delete(messages, 1)
-            print("API error, retrying{}".format(" "*20), end="\r")
-            print('\'{}\'{}'.format(e," "*40))
-            sleep(3)
-            telegram_bot('sendMessage', "Error:\n\n{}".format(e), opt=1)
-
+            false_count=0
+            while True:
+                try:
+                    print("Fetching CoWin API...{}".format(" "*20), end="\r")
+                    proxies = []
+                    with open("proxy.json", 'r') as f:
+                        proxies=json.load(f)
+                        proxies=proxies['proxy']
+                        proxies.append("")
+                    # print("Proxies={}".format(proxies))            
+                    with open("location.json", 'r') as f:
+                        data=json.load(f)
+                        district_id=data['district_id']                
+                    proxy = proxies[random.randint(0, len(proxies)-1)]
+                    sleep(2)
+                    # messages.append(telegram_bot('sendMessage', "Fetching CoWin API...", opt=1)['result']['message_id'])            
+                    if not proxy=="": print("Using proxy {}...{}".format(proxy, " "*20), end="\r")
+                    response=cowin_get(district_id,"{}-{}-{}".format(datetime.date.today().day, datetime.date.today().month, datetime.date.today().year), requests, proxy)
+                    if response.status_code == requests.codes.ok:
+                        # resp={}
+                        # with open("output.json", 'r') as f:
+                            # resp=json.load(f)
+                        resp_json=dict(response.json())
+                        # resp_json=resp
+                        # print(print_centres(resp_json['centers']))
+                        # print(json.dumps(resp_json, indent=2))
+                        # new_message = print_centres(resp_json['centers'])
+                        new_message = print_centres(available_centres(resp_json))
+                        if not new_message=="":
+                            with open('good_output.json', 'a') as f:
+                                json.dump(resp_json, f, indent=2)
+                                f.close()
+                            deltaT=datetime.datetime.now()-last_positive
+                            # print(deltaT.total_seconds())
+                            print("{}".format(new_message), end='')
+                            if deltaT >= datetime.timedelta(seconds=20):
+                                print("\nRelaying to channel...{}".format(" "*20), end="\r")
+                                telegram_bot('sendMessage', "{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message))
+                                last_positive=datetime.datetime.now()
+                        else:
+                            print("No available centres...{}".format(" "*20), end='\r')
+                        print("{}{}".format(false_count, " "*40), end='\r')
+                        sleep(0.25)
+                        alt=1
+                        if not remainder(false_count, alt):
+                            print("Sending telegram message...".format(" "*20), end='\r')
+                            sleep(0.25)
+                            new_message = print_centres(resp_json['centers'])
+                            # print(new_message)
+                            with open("output.json", 'w+') as f:
+                                json.dump(resp_json, f, indent=2)
+                                f.close()
+                            responses=telegram_bot_send("API Response:\n{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message), opt=1)
+                            # print("\n{}, {}".format(responses, type(responses)))
+                            messages.extend(responses)
+                            # print(telegram_bot('sendMessage', "{}\n\nhttps://selfregistration.cowin.gov.in/".format(new_message), opt=1))
+                            telegram_bot_delete(messages[:-(len(responses))], 1)
+                            messages=messages[-len(responses):]
+                        elif remainder(false_count, alt)==-1:
+                            false_count=-1
+                        false_count+=1
+                    # print("Waiting 5 seconds...", end="\r")
+                    sleep(3)
+                except Exception as e:
+                    telegram_bot_delete(messages, 1)
+                    print("API error, retrying{}".format(" "*20), end="\r")
+                    print('\'{}\'{}'.format(e," "*40))
+                    sleep(3)
+                    telegram_bot('sendMessage', "Error:\n\n{}".format(e), opt=1)
+        except Exception as e: 
+            print(e)
+            sleep(10)
