@@ -2,5 +2,7 @@ token.json
 location.json
 proxy.json
 test.py
+*.json
 .gitignore
  - Copy.gitignore
+ *.pdf
