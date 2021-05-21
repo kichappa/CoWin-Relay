@@ -1,6 +1,7 @@
 {
   "centers": [
     {
+<<<<<<< Updated upstream
       "center_id": 580481,
       "name": "CHC Malayidamthuruth",
       "address": "CHC Malayidamthuruth",
@@ -8,6 +9,15 @@
       "district_name": "Ernakulam",
       "block_name": "Malayadamthuruth CHC",
       "pincode": 683561,
+=======
+      "center_id": 155179,
+      "name": "Varappetty CHC",
+      "address": "VarapettyErnakulamKeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Varappetty CHC",
+      "pincode": 686691,
+>>>>>>> Stashed changes
       "lat": 10,
       "long": 76,
       "from": "09:00:00",
@@ -15,6 +25,7 @@
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "d16ff226-4a67-4658-b1d6-ea4c60386129",
           "date": "15-05-2021",
           "available_capacity": 0,
@@ -44,6 +55,8 @@
       "fee_type": "Free",
       "sessions": [
         {
+=======
+>>>>>>> Stashed changes
           "session_id": "7a015257-cb3a-4cb8-9b55-819ff598649b",
           "date": "15-05-2021",
           "available_capacity": 0,
@@ -59,6 +72,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155504,
       "name": "Poothotta CHC",
       "address": "Chc Poothotta Poothotta P.o Ernakulam",
@@ -93,6 +107,13 @@
       "address": "MuvattupuzhaErnakulamKeralaIN",
       "state_name": "Kerala",
       "district_name": "Ernakulam",
+=======
+      "center_id": 155156,
+      "name": "Pandappilly CHC",
+      "address": "MuvattupuzhaErnakulamKeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+>>>>>>> Stashed changes
       "block_name": "Pandappilly CHC",
       "pincode": 686672,
       "lat": 9,
@@ -161,6 +182,7 @@
       "sessions": [
         {
           "session_id": "9fa1b4bf-5d48-4b1a-8c8c-6b8242b3d81d",
+<<<<<<< Updated upstream
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -190,6 +212,59 @@
       "sessions": [
         {
           "session_id": "d4a3737b-65d2-43ee-bb93-655cb99a7875",
+=======
+>>>>>>> Stashed changes
+          "date": "15-05-2021",
+          "available_capacity": 0,
+          "min_age_limit": 45,
+          "vaccine": "COVISHIELD",
+          "slots": [
+<<<<<<< Updated upstream
+            "10:00AM-11:00AM",
+            "11:00AM-12:00PM",
+            "12:00PM-01:00PM",
+            "01:00PM-04:00PM"
+=======
+            "09:00AM-11:00AM",
+            "11:00AM-01:00PM",
+            "01:00PM-03:00PM",
+            "03:00PM-04:00PM"
+>>>>>>> Stashed changes
+          ]
+        }
+      ]
+    },
+    {
+<<<<<<< Updated upstream
+      "center_id": 155110,
+      "name": "Thrikkakara PHC",
+      "address": "Temple Road Soubhagya Nagar Vidya Nagar Colony Thrikkakara Kochi Kerala",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Cheranalloor PHC",
+      "pincode": 682021,
+      "lat": 10,
+=======
+      "center_id": 155107,
+      "name": "Kadavanthra UPHC-DIV 60",
+      "address": "Kadavanthara Ernakulam KeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Nettoor PHC",
+      "pincode": 682020,
+      "lat": 9,
+>>>>>>> Stashed changes
+      "long": 76,
+      "from": "10:00:00",
+      "to": "16:00:00",
+      "fee_type": "Free",
+      "sessions": [
+        {
+<<<<<<< Updated upstream
+          "session_id": "db86754d-c312-479c-868a-2d2496a3bbb9",
+=======
+          "session_id": "d4a3737b-65d2-43ee-bb93-655cb99a7875",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -233,35 +308,6 @@
       ]
     },
     {
-      "center_id": 155393,
-      "name": "Kadayiruppu CHC",
-      "address": "VadavucodeErnakulamKeralaIN",
-      "state_name": "Kerala",
-      "district_name": "Ernakulam",
-      "block_name": "Vadavucode CHC",
-      "pincode": 682311,
-      "lat": 10,
-      "long": 76,
-      "from": "09:00:00",
-      "to": "14:00:00",
-      "fee_type": "Free",
-      "sessions": [
-        {
-          "session_id": "986abdf3-4f30-4d62-8f42-e373445679bb",
-          "date": "15-05-2021",
-          "available_capacity": 0,
-          "min_age_limit": 45,
-          "vaccine": "COVISHIELD",
-          "slots": [
-            "09:00AM-10:00AM",
-            "10:00AM-11:00AM",
-            "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
-          ]
-        }
-      ]
-    },
-    {
       "center_id": 155349,
       "name": "Vengoor CHC",
       "address": "VengoorErnakulamKeralaIN",
@@ -277,64 +323,6 @@
       "sessions": [
         {
           "session_id": "f6830e41-d6b8-4dfc-bf41-8dd791d6d1d0",
-          "date": "15-05-2021",
-          "available_capacity": 0,
-          "min_age_limit": 45,
-          "vaccine": "COVISHIELD",
-          "slots": [
-            "09:00AM-10:00AM",
-            "10:00AM-11:00AM",
-            "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
-          ]
-        }
-      ]
-    },
-    {
-      "center_id": 155294,
-      "name": "Rayamangalam FHC",
-      "address": "VengoorErnakulamKeralaIN",
-      "state_name": "Kerala",
-      "district_name": "Ernakulam",
-      "block_name": "Vengoor CHC",
-      "pincode": 683545,
-      "lat": 10,
-      "long": 76,
-      "from": "09:00:00",
-      "to": "14:00:00",
-      "fee_type": "Free",
-      "sessions": [
-        {
-          "session_id": "027d8a0a-832c-4703-b6b1-50739aae468a",
-          "date": "15-05-2021",
-          "available_capacity": 0,
-          "min_age_limit": 45,
-          "vaccine": "COVISHIELD",
-          "slots": [
-            "09:00AM-10:00AM",
-            "10:00AM-11:00AM",
-            "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
-          ]
-        }
-      ]
-    },
-    {
-      "center_id": 155151,
-      "name": "Ayavana PHC",
-      "address": "MuvattupuzhaErnakulamKeralaIN",
-      "state_name": "Kerala",
-      "district_name": "Ernakulam",
-      "block_name": "Pandappilly CHC",
-      "pincode": 686668,
-      "lat": 9,
-      "long": 76,
-      "from": "09:00:00",
-      "to": "14:00:00",
-      "fee_type": "Free",
-      "sessions": [
-        {
-          "session_id": "e146d80a-f118-4fbb-8200-37a4e3ac884e",
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -378,6 +366,79 @@
       ]
     },
     {
+      "center_id": 155151,
+      "name": "Ayavana PHC",
+      "address": "MuvattupuzhaErnakulamKeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Pandappilly CHC",
+      "pincode": 686668,
+      "lat": 9,
+      "long": 76,
+      "from": "09:00:00",
+      "to": "14:00:00",
+      "fee_type": "Free",
+      "sessions": [
+        {
+          "session_id": "e146d80a-f118-4fbb-8200-37a4e3ac884e",
+          "date": "15-05-2021",
+          "available_capacity": 0,
+          "min_age_limit": 45,
+          "vaccine": "COVISHIELD",
+          "slots": [
+            "09:00AM-10:00AM",
+            "10:00AM-11:00AM",
+            "11:00AM-12:00PM",
+            "12:00PM-02:00PM"
+          ]
+        }
+      ]
+    },
+    {
+<<<<<<< Updated upstream
+      "center_id": 642600,
+      "name": "Municipal Hall Kakkanad",
+      "address": "Thrikkakara Municipality Community Hall Thrikkakara Kakkanad Kerala India",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Cheranalloor PHC",
+      "pincode": 682021,
+      "lat": 10,
+=======
+      "center_id": 161445,
+      "name": "Valanthakad PHC",
+      "address": "Valanthakad Ernakulam Kerala",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Nettoor PHC",
+      "pincode": 682040,
+      "lat": 9,
+>>>>>>> Stashed changes
+      "long": 76,
+      "from": "09:00:00",
+      "to": "14:00:00",
+      "fee_type": "Free",
+      "sessions": [
+        {
+<<<<<<< Updated upstream
+          "session_id": "35a8b8c3-afb5-4d32-9667-a241644bfeef",
+=======
+          "session_id": "dacb363b-7e33-4f8b-89c8-c71abc6bef10",
+>>>>>>> Stashed changes
+          "date": "15-05-2021",
+          "available_capacity": 0,
+          "min_age_limit": 45,
+          "vaccine": "COVISHIELD",
+          "slots": [
+            "09:00AM-10:00AM",
+            "10:00AM-11:00AM",
+            "11:00AM-12:00PM",
+            "12:00PM-02:00PM"
+          ]
+        }
+      ]
+    },
+    {
       "center_id": 155385,
       "name": "Vadavucode CHC",
       "address": "VadavucodeErnakulamKeralaIN",
@@ -407,6 +468,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 161445,
       "name": "Valanthakad PHC",
       "address": "Valanthakad Ernakulam Kerala",
@@ -415,13 +477,27 @@
       "block_name": "Nettoor PHC",
       "pincode": 682040,
       "lat": 9,
+=======
+      "center_id": 155300,
+      "name": "Cheruvattor PHC",
+      "address": "VarapettyErnakulamKeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Varappetty CHC",
+      "pincode": 686691,
+      "lat": 10,
+>>>>>>> Stashed changes
       "long": 76,
       "from": "09:00:00",
       "to": "14:00:00",
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "dacb363b-7e33-4f8b-89c8-c71abc6bef10",
+=======
+          "session_id": "3c1f56c1-4fb5-4da0-bba4-c623e3dfa423",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -436,6 +512,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155139,
       "name": "Varappuzha CHC",
       "address": "AalangadErnakulamKeralaIN",
@@ -443,6 +520,15 @@
       "district_name": "Ernakulam",
       "block_name": "Varappuzha CHC",
       "pincode": 683517,
+=======
+      "center_id": 155335,
+      "name": "Thuravoor FHC",
+      "address": "AngamalyErnakulamKeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Ankamali TH",
+      "pincode": 683572,
+>>>>>>> Stashed changes
       "lat": 10,
       "long": 76,
       "from": "09:00:00",
@@ -450,7 +536,11 @@
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "ebadf5b5-d710-484b-9f7b-dc60e774d1f7",
+=======
+          "session_id": "31ec1e0c-7551-4715-9e41-af91a8e1f386",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -512,7 +602,50 @@
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
+<<<<<<< Updated upstream
           "vaccine": "COVISHIELD",
+=======
+          "vaccine": "COVAXIN",
+          "slots": [
+            "09:00AM-10:00AM",
+            "10:00AM-11:00AM",
+            "11:00AM-12:00PM",
+            "12:00PM-03:00PM"
+          ]
+        },
+        {
+          "session_id": "67baf100-4b45-4fe6-9bf8-5c559407427b",
+          "date": "16-05-2021",
+          "available_capacity": 0,
+          "min_age_limit": 18,
+          "vaccine": "COVAXIN",
+          "slots": [
+            "09:00AM-10:00AM",
+            "10:00AM-11:00AM",
+            "11:00AM-12:00PM",
+            "12:00PM-04:30PM"
+          ]
+        },
+        {
+          "session_id": "76139e61-e556-48ac-b255-ecbca059fcf4",
+          "date": "17-05-2021",
+          "available_capacity": 0,
+          "min_age_limit": 18,
+          "vaccine": "COVAXIN",
+          "slots": [
+            "09:00AM-10:00AM",
+            "10:00AM-11:00AM",
+            "11:00AM-12:00PM",
+            "12:00PM-03:00PM"
+          ]
+        },
+        {
+          "session_id": "cf2ee505-158b-4854-84ed-8fd94e1f1f86",
+          "date": "17-05-2021",
+          "available_capacity": 0,
+          "min_age_limit": 45,
+          "vaccine": "COVAXIN",
+>>>>>>> Stashed changes
           "slots": [
             "09:00AM-10:00AM",
             "10:00AM-11:00AM",
@@ -552,6 +685,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 172240,
       "name": "Kallorkkad PHC",
       "address": "PandappillyErnakulamKeralaIN",
@@ -560,13 +694,27 @@
       "block_name": "Pandappilly CHC",
       "pincode": 686668,
       "lat": 9,
+=======
+      "center_id": 155104,
+      "name": "Cheranalloor FHC",
+      "address": "Cheranallur Ernakulam Kerala IN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Cheranalloor PHC",
+      "pincode": 682034,
+      "lat": 10,
+>>>>>>> Stashed changes
       "long": 76,
       "from": "09:00:00",
       "to": "14:00:00",
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "776d9bde-09a9-43fd-ba86-399c96f3b6f8",
+=======
+          "session_id": "9a149aba-9ba6-499b-966f-8ccbb3b6b8d0",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -581,6 +729,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155300,
       "name": "Cheruvattor PHC",
       "address": "VarapettyErnakulamKeralaIN",
@@ -589,13 +738,27 @@
       "block_name": "Varappetty CHC",
       "pincode": 686691,
       "lat": 10,
+=======
+      "center_id": 172248,
+      "name": "Mulamthuruthy CHC",
+      "address": "KeecheryErnakulamKeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Keechery CHC",
+      "pincode": 682314,
+      "lat": 9,
+>>>>>>> Stashed changes
       "long": 76,
       "from": "09:00:00",
       "to": "14:00:00",
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "3c1f56c1-4fb5-4da0-bba4-c623e3dfa423",
+=======
+          "session_id": "05ab14b1-0b0b-4f94-bd0e-5af3426da4a3",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -610,6 +773,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155335,
       "name": "Thuravoor FHC",
       "address": "AngamalyErnakulamKeralaIN",
@@ -618,27 +782,42 @@
       "block_name": "Ankamali TH",
       "pincode": 683572,
       "lat": 10,
+=======
+      "center_id": 155125,
+      "name": "Kaloor UPHC-DIV 69",
+      "address": "3rd Cross Rd Manappatiparambu Lane Ernakulam North Kathrikadavu Kaloor",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Nettoor PHC",
+      "pincode": 682018,
+      "lat": 9,
+>>>>>>> Stashed changes
       "long": 76,
-      "from": "09:00:00",
-      "to": "14:00:00",
+      "from": "10:00:00",
+      "to": "16:00:00",
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "31ec1e0c-7551-4715-9e41-af91a8e1f386",
+=======
+          "session_id": "321bb99a-c96f-490c-93e4-8f153abd1650",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
           "vaccine": "COVISHIELD",
           "slots": [
-            "09:00AM-10:00AM",
             "10:00AM-11:00AM",
             "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
+            "12:00PM-01:00PM",
+            "01:00PM-04:00PM"
           ]
         }
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 513381,
       "name": "Koonammavu PHC",
       "address": "Koonammavu - Panayikulam - Alwaye Rd Kongorppilly Koonammavu Kerala",
@@ -647,27 +826,42 @@
       "block_name": "Ezhikara CHC",
       "pincode": 683518,
       "lat": 10,
+=======
+      "center_id": 583605,
+      "name": "Port Trust Hospital Session",
+      "address": "Cochin Port Trust Hospital Ernakulam",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Nettoor PHC",
+      "pincode": 682011,
+      "lat": 9,
+>>>>>>> Stashed changes
       "long": 76,
       "from": "09:00:00",
-      "to": "14:00:00",
+      "to": "18:00:00",
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "e7ad723b-f152-4ed6-812d-b494bea7db75",
+=======
+          "session_id": "ff26b8cb-6f43-442e-9157-ef2a079091eb",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
           "vaccine": "COVISHIELD",
           "slots": [
-            "09:00AM-10:00AM",
-            "10:00AM-11:00AM",
-            "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
+            "09:00AM-11:00AM",
+            "11:00AM-01:00PM",
+            "01:00PM-03:00PM",
+            "03:00PM-06:00PM"
           ]
         }
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 636420,
       "name": "Pallath Raman Community Hall",
       "address": "Pallathu Raman Memorial Hall Thamaraparambu Fort Kochi Kochi Kerala India",
@@ -791,6 +985,15 @@
       "district_name": "Ernakulam",
       "block_name": "Varappetty CHC",
       "pincode": 686692,
+=======
+      "center_id": 155501,
+      "name": "Puthenvelikkara Taluk Hospital",
+      "address": "Elenthikkara Chendamangalam Kerala",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Chengamanad CHC",
+      "pincode": 683594,
+>>>>>>> Stashed changes
       "lat": 10,
       "long": 76,
       "from": "09:00:00",
@@ -798,7 +1001,11 @@
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "c650acf0-1b21-4da5-9edb-ac83062830f5",
+=======
+          "session_id": "de07e27f-ba1f-4be7-9576-45aba41bbb9d",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -813,6 +1020,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155472,
       "name": "Mazhuvannoor FHC",
       "address": "VadavucodeErnakulamKeralaIN",
@@ -874,13 +1082,19 @@
       "center_id": 155459,
       "name": "Thottoor PHC",
       "address": "Thottoor Vattappara - Veliyanadu Rd Kaipattoor Kerala",
+=======
+      "center_id": 155145,
+      "name": "Thripunithura THQH",
+      "address": "Near Mini Bypass Thrippunithura Rd Kottakakom Ernakulam Kerala",
+>>>>>>> Stashed changes
       "state_name": "Kerala",
       "district_name": "Ernakulam",
       "block_name": "Keechery CHC",
-      "pincode": 682313,
+      "pincode": 682301,
       "lat": 9,
       "long": 76,
       "from": "09:00:00",
+<<<<<<< Updated upstream
       "to": "14:00:00",
       "fee_type": "Free",
       "sessions": [
@@ -973,15 +1187,22 @@
       "sessions": [
         {
           "session_id": "a85212d1-1dd4-46e2-b9ad-ead8f842636c",
+=======
+      "to": "17:00:00",
+      "fee_type": "Free",
+      "sessions": [
+        {
+          "session_id": "17354491-37aa-45c9-999f-1594ca7ca877",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
           "vaccine": "COVISHIELD",
           "slots": [
-            "09:00AM-10:00AM",
-            "10:00AM-11:00AM",
-            "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
+            "09:00AM-11:00AM",
+            "11:00AM-01:00PM",
+            "01:00PM-03:00PM",
+            "03:00PM-05:00PM"
           ]
         }
       ]
@@ -1770,6 +1991,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155169,
       "name": "Kottappady PHC",
       "address": "VarapettyErnakulamKeralaIN",
@@ -1778,27 +2000,42 @@
       "block_name": "Varappetty CHC",
       "pincode": 686692,
       "lat": 10,
+=======
+      "center_id": 565037,
+      "name": "PVS Memorial Hospital Ekm 2",
+      "address": "Banerji Rd Opp Gokulam Park Kaloor",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Nettoor PHC",
+      "pincode": 682017,
+      "lat": 9,
+>>>>>>> Stashed changes
       "long": 76,
       "from": "09:00:00",
-      "to": "14:00:00",
+      "to": "16:00:00",
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "5db7d59e-4e91-4b73-99bb-daed190cc94d",
+=======
+          "session_id": "57ed2bda-3441-4a4c-98ac-bb1b2cb3f24e",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
           "vaccine": "COVISHIELD",
           "slots": [
-            "09:00AM-10:00AM",
-            "10:00AM-11:00AM",
-            "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
+            "09:00AM-11:00AM",
+            "11:00AM-01:00PM",
+            "01:00PM-03:00PM",
+            "03:00PM-04:00PM"
           ]
         }
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155116,
       "name": "Pizhala PHC",
       "address": "Pizhala Ernakulam Kerala",
@@ -1806,6 +2043,15 @@
       "district_name": "Ernakulam",
       "block_name": "Pizhala PHC",
       "pincode": 682027,
+=======
+      "center_id": 155162,
+      "name": "North Paravur THQH",
+      "address": "Paravur Main Road Near Private Bus Stand North Paravur Kerala",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Ezhikara CHC",
+      "pincode": 683513,
+>>>>>>> Stashed changes
       "lat": 10,
       "long": 76,
       "from": "09:00:00",
@@ -1813,11 +2059,15 @@
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "187e896d-d31a-4444-b59d-dc38f0ad175a",
+=======
+          "session_id": "29780364-ee7c-4e5f-8695-b007079b9344",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
-          "vaccine": "COVISHIELD",
+          "vaccine": "COVAXIN",
           "slots": [
             "09:00AM-10:00AM",
             "10:00AM-11:00AM",
@@ -1828,6 +2078,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155419,
       "name": "Chowara FHC",
       "address": "KaladyErnakulamKeralaIN",
@@ -1835,6 +2086,15 @@
       "district_name": "Ernakulam",
       "block_name": "Kalady CHC",
       "pincode": 683580,
+=======
+      "center_id": 155216,
+      "name": "Eloor PHC",
+      "address": "VarappuzhaErnakulamKeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Varappuzha CHC",
+      "pincode": 683501,
+>>>>>>> Stashed changes
       "lat": 10,
       "long": 76,
       "from": "09:00:00",
@@ -1842,7 +2102,11 @@
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "87a3ec22-1382-4732-8e30-a9213f12a312",
+=======
+          "session_id": "f6b18992-f637-4136-9ede-9affdb1f0063",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -1915,6 +2179,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155290,
       "name": "Mudakuzha PHC",
       "address": "VengoorErnakulamKeralaIN",
@@ -1959,20 +2224,38 @@
       "sessions": [
         {
           "session_id": "019f3515-12c6-4f53-b253-4e023fd9288d",
+=======
+      "center_id": 155167,
+      "name": "Kothamangalam THQH",
+      "address": "VarapettyErnakulamKeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Pallarimangalam CHC",
+      "pincode": 686691,
+      "lat": 10,
+      "long": 76,
+      "from": "09:00:00",
+      "to": "17:00:00",
+      "fee_type": "Free",
+      "sessions": [
+        {
+          "session_id": "0310085e-fffa-4891-8784-4149794fe119",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
-          "vaccine": "COVISHIELD",
+          "vaccine": "COVAXIN",
           "slots": [
-            "09:00AM-10:00AM",
-            "10:00AM-11:00AM",
-            "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
+            "09:00AM-11:00AM",
+            "11:00AM-01:00PM",
+            "01:00PM-03:00PM",
+            "03:00PM-05:00PM"
           ]
         }
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155318,
       "name": "Ezhikkara CHC",
       "address": "Chathanad Rd Ezhikkara North Paravur Kerala",
@@ -1980,6 +2263,15 @@
       "district_name": "Ernakulam",
       "block_name": "Ezhikara CHC",
       "pincode": 683513,
+=======
+      "center_id": 155169,
+      "name": "Kottappady PHC",
+      "address": "VarapettyErnakulamKeralaIN",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Varappetty CHC",
+      "pincode": 686692,
+>>>>>>> Stashed changes
       "lat": 10,
       "long": 76,
       "from": "09:00:00",
@@ -1987,7 +2279,11 @@
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "cef036be-46ef-469e-8f2b-ec82c78ebda1",
+=======
+          "session_id": "5db7d59e-4e91-4b73-99bb-daed190cc94d",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -2002,6 +2298,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155401,
       "name": "Kunnukara PHC",
       "address": "ParakadavuErnakulamKeralaIN",
@@ -2009,6 +2306,15 @@
       "district_name": "Ernakulam",
       "block_name": "Chengamanad CHC",
       "pincode": 683578,
+=======
+      "center_id": 155116,
+      "name": "Pizhala PHC",
+      "address": "Pizhala Ernakulam Kerala",
+      "state_name": "Kerala",
+      "district_name": "Ernakulam",
+      "block_name": "Pizhala PHC",
+      "pincode": 682027,
+>>>>>>> Stashed changes
       "lat": 10,
       "long": 76,
       "from": "09:00:00",
@@ -2016,7 +2322,11 @@
       "fee_type": "Free",
       "sessions": [
         {
+<<<<<<< Updated upstream
           "session_id": "55ed3a11-3445-4589-99a4-9fcf913487ab",
+=======
+          "session_id": "187e896d-d31a-4444-b59d-dc38f0ad175a",
+>>>>>>> Stashed changes
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
@@ -2205,6 +2515,7 @@
       ]
     },
     {
+<<<<<<< Updated upstream
       "center_id": 155440,
       "name": "Manjalloor PHC",
       "address": "PandappillyErnakulamKeralaIN",
@@ -2353,56 +2664,32 @@
       "center_id": 172247,
       "name": "Edathala PHC",
       "address": "Edathala Aluva Kerala 683563",
+=======
+      "center_id": 683432,
+      "name": "Chambakkara UPHC-Div 29",
+      "address": "Ponnurunni Vyttila Ernakulam Kerala",
+>>>>>>> Stashed changes
       "state_name": "Kerala",
       "district_name": "Ernakulam",
-      "block_name": "Malayadamthuruth CHC",
-      "pincode": 683563,
-      "lat": 10,
-      "long": 76,
-      "from": "09:00:00",
-      "to": "14:00:00",
-      "fee_type": "Free",
-      "sessions": [
-        {
-          "session_id": "52fe526b-b2d1-4fc3-bc10-dd63a0e69dfa",
-          "date": "15-05-2021",
-          "available_capacity": 0,
-          "min_age_limit": 45,
-          "vaccine": "COVISHIELD",
-          "slots": [
-            "09:00AM-10:00AM",
-            "10:00AM-11:00AM",
-            "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
-          ]
-        }
-      ]
-    },
-    {
-      "center_id": 172249,
-      "name": "Keechery CHC",
-      "address": "KanayannoorErnakulamKeralaIN",
-      "state_name": "Kerala",
-      "district_name": "Ernakulam",
-      "block_name": "Keechery CHC",
-      "pincode": 682315,
+      "block_name": "Nettoor PHC",
+      "pincode": 682019,
       "lat": 9,
       "long": 76,
-      "from": "09:00:00",
-      "to": "14:00:00",
+      "from": "10:00:00",
+      "to": "16:00:00",
       "fee_type": "Free",
       "sessions": [
         {
-          "session_id": "fd394872-39c9-4451-9100-9ef4eae6fd04",
+          "session_id": "4ce48423-c42b-46c7-845f-ca0ce553fe6b",
           "date": "15-05-2021",
           "available_capacity": 0,
           "min_age_limit": 45,
           "vaccine": "COVISHIELD",
           "slots": [
-            "09:00AM-10:00AM",
             "10:00AM-11:00AM",
             "11:00AM-12:00PM",
-            "12:00PM-02:00PM"
+            "12:00PM-01:00PM",
+            "01:00PM-04:00PM"
           ]
         }
       ]
