@@ -3,6 +3,7 @@ location.json
 proxy.json
 test.py
 *.json
+output.json
 .gitignore
  - Copy.gitignore
  *.pdf
