@@ -4,14 +4,13 @@ from secret import encrypt
 password = "CoWIN@$#&*(!@%^&".encode()
 username="b5cab167-7977-4df1-8027-a63aa144f04e".encode()
 
-token=encrypt(username, password).decode()
-print(token)
+secret=encrypt(username, password).decode()
+print(secret)
 
 def _get_response(method, headerAppend={}, **kwargs):
     with open("api.json", "r") as f:
-        apiJSON=json.load(f)
+        apiJSON=json.load(f)["protected"]
         request={**apiJSON[method], "header": {**apiJSON["genericHeaders"], **headerAppend}}
-
     
     for key, value in kwargs.items():
         try:
@@ -38,7 +37,7 @@ with open("mobile.json", "r") as f:
     
 response = _get_response("generateMobileOTP", json={
     "mobile": mobile,
-    "secret": token
+    "secret": secret
 })
 
 print(response)
