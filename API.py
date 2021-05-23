@@ -37,6 +37,7 @@ def _today():
 with open("mobile.json", "r") as f:
     mobile=json.load(f)['mobile']
 
+# Generate OTP -------------------------------------------------------------------------
 response = _get_response("generateMobileOTP", json={
     "mobile": mobile,
     "secret": secret
@@ -47,8 +48,8 @@ try:
     print(response.json())
 except:
     print(response.content)
-    
-#----------------------------------------------------
+
+# Validate OTP -------------------------------------------------------------------------
 otp=str(input("Enter OTP: "))
 otpHash=hashlib.sha256(otp.encode()).hexdigest()
 print(otp, otpHash)
@@ -72,7 +73,7 @@ with open("token.json", 'w+') as f:
 #     response = json.load(f)
 # bearer_token=response['token']
 
-#----------------------------------------------------
+# Calendar by District -----------------------------------------------------------------
 response = _get_response("calendarByDistrict", headerAppend={
     "authorization": "Bearer {}".format(bearer_token)
 }, url={
@@ -87,7 +88,7 @@ try:
 except:
     print(response.content)
 
-#----------------------------------------------------
+# Find by District ---------------------------------------------------------------------
 response = _get_response("findByDistrict", headerAppend={
     "authorization": "Bearer {}".format(bearer_token)
 }, url={
@@ -99,7 +100,7 @@ print("\n\nFind By District")
 print(response)
 print(response.json())
 
-#----------------------------------------------------
+# Calendar by PIN ----------------------------------------------------------------------
 response = _get_response("calendarByPIN", headerAppend={
     "authorization": "Bearer {}".format(bearer_token)
 }, url={
@@ -111,7 +112,7 @@ print("\n\nCalender By PIN")
 print(response)
 print(response.json())
 
-#----------------------------------------------------
+# Find by PIN --------------------------------------------------------------------------
 response = _get_response("findByPIN", headerAppend={
     "authorization": "Bearer {}".format(bearer_token)
 }, url={
@@ -123,7 +124,7 @@ print("\n\nFind By PIN")
 print(response)
 print(response.json())
 
-#----------------------------------------------------
+# List all registered beneficiaries ----------------------------------------------------
 response = _get_response("beneficiaries", headerAppend={
     "authorization": "Bearer {}".format(bearer_token)
 })
@@ -133,8 +134,8 @@ try:
     print(response.json())
 except:
     print(response.content)
-    
-#----------------------------------------------------
+
+# Download certificate -----------------------------------------------------------------
 response = _get_response("certificate", headerAppend={
     "authorization": "Bearer {}".format(bearer_token)
 }, url={
