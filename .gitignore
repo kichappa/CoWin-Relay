@@ -1,9 +1,12 @@
+*.pdf
+*.json
+
 token.json
 location.json
 proxy.json
 test.py
-*.json
+!api.json
 output.json
 .gitignore
- - Copy.gitignore
- *.pdf
+__pycache__/*
+beni.json
